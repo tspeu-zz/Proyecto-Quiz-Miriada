@@ -7,7 +7,7 @@
   },
   "engines":{
     "node":"0.12.6",
-    "npm": "2.11.2",
+    "npm": "2.11.2"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
