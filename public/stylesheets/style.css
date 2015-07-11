@@ -1,19 +1,25 @@
-* {margin:0;
+* {
+  margin:0;
   padding:0;
 }
 
-body{font: 16px "Verdana",serif;
+body{font: 16px "Lato", sans-serif;
 }
 
-#page-wrap {margin : 2% auto;
-              color: black;
-            }
+#page-wrap {
+  margin : 2% auto;
+  color: #3498db;
+}
+
+h1 {
+  font-size: 40px;
+}
 
 #page-wrap > .main{
   border :1px solid #999;
   padding :1%;
   margin-bottom: 1px;
-  color: blue;
+  color: #3498db;
 }
 
 section > div{
