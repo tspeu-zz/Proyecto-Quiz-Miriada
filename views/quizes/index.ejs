@@ -1,0 +1,11 @@
+
+    <h1>bienvenido a <b> Quiz</b></h1>
+    <p>Portal donde podrá crear sus propio juegos!</p>
+<!--<br><p><a href="/quizes/question">Comenzar a  jugar! </a></p><br>-->
+
+<table>
+  <% var i; for (i=0 ; i < quizes.length; i++) { %>
+<tr><td><a href="quizes/<%= quizes[i].id %>">
+        <%= quizes[i].pregunta %></a></td></tr>
+  <%  } %>
+</table>
