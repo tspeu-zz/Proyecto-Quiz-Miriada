@@ -38,20 +38,20 @@ exports.show = function(req,res){
 
 //GET / quizes / answer
 exports.answer = function(req,res){
-    models.Quiz.find(req.params.quizId).then(function(quiz)
-    {
-      if (req.query.respuesta === quiz.respuesta)
+    //models.Quiz.find(req.params.quizId).then(function(quiz){
+      var resultado = 'La respuesta es Incorrecta';
+      if (req.query.respuesta === req.quiz.respuesta)
       {
-        res.render('quizes/answer',
-        { quiz : quiz,
-          respuesta : 'La respuesta es Correcta'
-        });
-      } else
-      {
-        res.render('quizes/answer',
-        { quiz : quiz,
-          respuesta : 'La respuesta es Incorrecta'
-        });
+        //res.render('quizes/answer',
+        //{ quiz : quiz,
+          resultado = 'La respuesta es Correcta';
+        //});
       }
-    });
+      //else{
+        res.render('quizes/answer',
+        { quiz : req.quiz,
+          respuesta : resultado
+        });
+
+    //}});
 };
