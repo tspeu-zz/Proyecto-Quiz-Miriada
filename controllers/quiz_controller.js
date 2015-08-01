@@ -21,9 +21,10 @@ exports.load = function(req,res,next, quizId){
 //las preguntas en la BD
 //el modulo index
 exports.index = function(req,res){
-    models.Quiz.findAll().then(function(quizes){
-        res.render('quizes/index',
-        {  quizes : quizes });
+    models.Quiz.findAll().
+    then(function(quizes){
+        res.render('quizes/index.ejs',
+        {  quizes : quizes, errors: [] });
     }).catch(function(error){
       next(error);
     });
@@ -32,7 +33,8 @@ exports.index = function(req,res){
 
 exports.show = function(req,res){
     models.Quiz.find(req.params.quizId).then(function(quiz){
-    res.render('quizes/show',{ quiz : req.quiz});
+    res.render('quizes/show',
+    { quiz : req.quiz, errors: []});
   });
 };
 
