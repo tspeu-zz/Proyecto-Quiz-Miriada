@@ -8,8 +8,7 @@ var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
 
-// middlewares propios
-//var autoLogout = require('./middlewares/auto-logout');
+
 
 var routes = require('./routes/index');
 
