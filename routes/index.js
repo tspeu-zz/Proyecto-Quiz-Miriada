@@ -2,27 +2,48 @@ var express = require('express');
 var router = express.Router();
 
 var quizController = require('../controllers/quiz_controller');
+//var commentController = require('../controllers/comment_controller');
+//var sessionController = require('../controllers/session_controller');
+//var statisticsController = require('../controllers/statistics_controller');
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Quiz', errors: []});
+  res.render('index', { title: 'Quiz', errors: [] });
 });
-//autoload
-router.param('quizId', quizController.load);
 
+router.get('/author', function(req, res) {
+  res.render('author', {nombre : 'MIRIADA Módulo 8',
+                        autor : 'Juan M Banchero' ,errors: [] });
+});
+
+
+
+// Definición de rutas para la sesión
+//router.get('/login', sessionController.new); // formulario de login
+//router.post('/login', sessionController.create); // crear sesión
+//router.get('/logout', sessionController.destroy); // cerrar sesión (debería ser delete /login)
+
+  // Autoload de comandos con :quizId
+router.param('quizId', quizController.load); // autoload :quizId
+//router.param('commentId', commentController.load); // autoload :commentId
+
+  // Definición de rutas para las quizes
 router.get('/quizes', quizController.index);
-router.get('/quizes/:quizId(\\d+)', quizController.show);
-router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
+router.get('/quizes/:quizId(\\d+)',         quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer',  quizController.answer);
+router.get('/quizes/new',                   quizController.new);
+router.post('/quizes/create',               quizController.create);
+router.get('/quizes/:quizId(\\d+)/edit',    quizController.edit);
+router.put('/quizes/:quizId(\\d+)',         quizController.update);
+router.delete('/quizes/:quizId(\\d+)',      quizController.destroy);
 
-//hace el get de question
-//router.get('/quizes/question', quizController.question);
-//hace el get que answer
-//router.get('/quizes/answer', quizController.answer);
+  // Definición de rutas para los comentarios
+//router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
+//router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
+//router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',sessionController.loginRequired,commentController.publish);
 
-/* GETp pagina creditos. */
-router.get('/autor', function(req, res) {
-  res.render('autor', { nombre : 'MIRIADA Módulo 6',
-                        autor : 'Juan M Banchero'
-                      });
-});
+
+  // Definición de ruta para las estadísticas
+//router.get('/quizes/statistics', statisticsController.calculate, statisticsController.show);
 
 module.exports = router;

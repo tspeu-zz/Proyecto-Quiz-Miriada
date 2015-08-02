@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lan='en'>
+<html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Preguntas</title>
+    <title> Quiz </title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="stylesheet" type="text/css"
-          media ="only screen and (min-width: 530px)
-          and (min-device-width: 481px)"
-           href="/stylesheets/wide.css"/>
-   <link rel="stylesheet"  type="text/css"
-          media='only screen and (max-width: 480px)'
+    <link rel="stylesheet"
+          type="text/css"
+          media="only screen and (min-width: 530px) and (min-device-width: 481px)"
+          href="/stylesheets/wide.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          media="only screen and (max-width: 480px)"
           href="/stylesheets/smartphone.css" />
-
-
-
   </head>
+
   <body>
-    <div id="page-wrap">
-      <header>
+    <div >
+      <header class="main" id="h1">
+  <!--      <% if(!session.user) { %>
+          <span class="right"><a href="/login">Login</a></span>
+        <% } else { %>
+          <span class="right"><%= session.user.username %> <a href="/logout">Logout</a></span>
+        <% } %>
+-->
         <h1><b>QUIZ :</b> el juego de las preguntas!</h1>
 
       </header>
-          <nav class="main" id="h1" role="navigation">
-            <span><a href="/">Inicio</a></span>
-            <span><a href="/quizes">Preguntas</a></span>
-            <span><a href="/autor">Créditos</a></span>
-          </nav>
+
+      <nav class="main" id="n1" role="navigation">
+        <span><a href="/">Inicio</a></span>
+        <span><a href="/quizes">Preguntas</a></span>
+        <!--<span><a href="/quizes/statistics">Estadísticas</a></span>-->
+        <span><a href="/author">Créditos</a></span>
+      </nav>
 
       <section class="main" id="s1">
-            <div><%- body %></div>
-
-      <!--  <div><table>
-
-            <tr><td><a href="/quizes/1">Capital de Italia    </a> </td></tr>
-            <tr><td><a href="/quizes/2">Capital de Portugal  </a> </td></tr>
-        </table></div>
-      </section>-->
+        <% if (errors.length) { %>
+          <span id="ErrorMsgs">
+            Corregir errores:<br />
+            <% for (var i in errors) { %>
+              <span><%= errors[i].message %></span><br />
+            <% } %>
+          </span>
+        <% } %>
+        <div>
+          <%- body %>
+        </div>
+      </section>
 
       <footer class="main" id="f1">
-              <a href="https://es.wikipedia.org/wiki/Quiz" target="_blank">¿Qué es un Quiz?
-              </a><br>
-              <a href="https://github.com/tspeu/Proyecto-Quiz-Miriada" target="_blank">
-                Enlace GitHub  Miriada Modulo 6
-              </a>
+        <p><a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a></p>
+        <p><a href="https://github.com/tspeu/Proyecto-Quiz-Miriada" target="_blank">
+          Enlace GitHub  Miriada Modulo 8</a></p>
       </footer>
-
     </div>
   </body>
 </html>
