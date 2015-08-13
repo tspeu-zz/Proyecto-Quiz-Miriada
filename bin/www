@@ -20,9 +20,9 @@ var server = app.listen(app.get('port'), function() {
 
 var serverSecure = https.createServer(options, app);
 serverSecure.listen(https_port, function () {
-<<<<<<< HEAD
+
  debug('Express server listening on port ' + server.address().port);
-=======
+
   debug('Express server listening on port ' + server.address().port);
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
+
 });
