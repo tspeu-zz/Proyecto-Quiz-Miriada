@@ -8,11 +8,7 @@ var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
 
-<<<<<<< HEAD
 var autoLogout = require('./middlewares/auto-logout');
-=======
-
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 
 var routes = require('./routes/index');
 
@@ -31,22 +27,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());     // no debe ser false
 app.use(bodyParser.urlencoded({ extended: true }));
 
-<<<<<<< HEAD
 
 app.use(cookieParser('Quiz 2015'));
 app.use(session({ resave: true, saveUninitialized: false }));
-=======
-var secret = 'Quiz 2015';
-app.use(cookieParser(secret));
-
-app.use(session({ resave: true, saveUninitialized: false, secret: secret }));
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Helpers dinámicos
 app.use(function (req, res, next) {
-<<<<<<< HEAD
 
   // guardar path en session.redir para despues login
   if (!req.path.match(/\/login|\/logout/)) {
@@ -60,21 +48,6 @@ app.use(function (req, res, next) {
 
 app.use(autoLogout());
 
-=======
-
-  // guardar path en session.redir para redirigir a la página en la que estabamos
-  if (!req.path.match(/\/login|\/logout/)) {
-    req.session.redir = req.path;
-  }
-
-  // Hacer visible req.session en las vistas
-  res.locals.session = req.session;
-  next();
-});
-
-//app.use(autoLogout());
-
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 app.use('/', routes);
 
 // catch 404 and forward to error handler
