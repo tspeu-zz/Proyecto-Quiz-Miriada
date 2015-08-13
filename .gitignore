@@ -2,4 +2,7 @@ node_modules
 npm-debug.log
 quiz.sqlite
 .env
+<<<<<<< HEAD
 Procfile.dev
+=======
+>>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624

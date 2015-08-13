@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form class="" action="/quizes" method="get">
   <label for="search">Filtrar por:</label>
   <input type="text" name="search" value="" />
@@ -33,3 +34,37 @@
   <a href="/quizes/new"><button type="button" style="font-size:16px">Crear nueva pregunta</button></a>
 </p>
 <% } %>
+=======
+<form style="font-size:18px" class="" action="/quizes" method="get">
+  <label for="search">Filtrar por:</label>
+  <input type="text" name="search" value="" />
+  <input type="submit" value="enviar">
+</form>
+
+<table style="font-size:18px">
+  <% var i; for (i = 0; i < quizes.length; i++) { %>
+    <tr>
+        <td>
+          <span class="capitalize"><%= quizes[i].tema %></span>
+        </td>
+        <td>
+          <a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
+        </td>
+        <td>
+          <a href="quizes/<%= quizes[i].id %>/edit"><button style="font-size:14px">Editar</button></a>
+        </td>
+        <td>
+          <form action="quizes/<%= quizes[i].id %>?_method=delete" method="post">
+            <button style="font-size:14px" type="submit"
+            onclick="return confirm('Borrar: <%= quizes[i].pregunta %>');">
+              Borrar
+            </button>
+          </form>
+        </td>
+    </tr>
+  <% } %>
+</table>
+<p>
+  <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+</p>
+>>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624

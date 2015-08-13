@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 <p>Añadir comentario: </p><br />
 <form method="post" action="/quizes/<%= quizid %>/comments/" >
   <input type="text" id="comment"  name="comment[texto]" value="" /><br />
+=======
+Añadir comentario: <br />
+<form action="/quizes/<%= quizid %>/comments" method="post">
+  <input id="comment" type="text" name="comment[texto]" value="" /><br />
+>>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
   <button type="submit" name="button">Enviar</button>
 </form>

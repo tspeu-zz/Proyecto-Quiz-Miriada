@@ -1,9 +1,20 @@
 <h2>Página de estadísticas</h2>
 
+<<<<<<< HEAD
 <ul class ="">
   <li>Número de preguntas: <%= statistics.quizes %></li>
   <li>Total de comentarios : <%= statistics.comments %></li>
   <li>Número medio de comentarios por pregunta: <%= statistics.quizes?(statistics.comments / statistics.quizes).toFixed(2):0 %></li>
   <li>Número de preguntas sin comentarios: <%= statistics.quizes - statistics.commentedQuizes %></li>
   <li>Número de preguntas con comentarios: <%= statistics.commentedQuizes %></li>
+=======
+<ul>
+  <li>Preguntas: <%= statistics.quizes %></li>
+  <li>Comentarios totales: <%= statistics.comments %></li>
+  <li>Comentarios no publicados: <%= statistics.commentsUnpublished %>
+    (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments).toFixed(2)+'%':'100%' %>)</li>
+  <li>Media de comentarios por pregunta: <%= statistics.quizes?(statistics.comments / statistics.quizes).toFixed(2):0 %></li>
+  <li>Preguntas sin comentarios: <%= statistics.quizes - statistics.commentedQuizes %></li>
+  <li>Preguntas con comentarios: <%= statistics.commentedQuizes %></li>
+>>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 </ul>

@@ -3,7 +3,12 @@
 var Subject = require('./subject.js');
 
 module.exports = function(sequelize, DataTypes) {
+<<<<<<< HEAD
   return sequelize.define('Quiz',
+=======
+  return sequelize.define(
+    'Quiz',
+>>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
           {
             pregunta: {
               type: DataTypes.STRING,
@@ -24,5 +29,10 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
           }
+<<<<<<< HEAD
         );
+=======
+
+          );
+>>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 };
