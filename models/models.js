@@ -12,17 +12,10 @@ var port     = (url[5]||null);
 var host     = (url[4]||null);
 var storage  = process.env.DATABASE_STORAGE;
 
-<<<<<<< HEAD
 
 var Sequelize = require('sequelize');
 
 
-=======
-// Cargar modelo ORM
-var Sequelize = require('sequelize');
-
-// Usar BBDD SQLite o Postgres
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 var sequelize = new Sequelize(DB_name, user, pwd,
   { dialect:  protocol,
     protocol: protocol,
@@ -37,7 +30,6 @@ var sequelize = new Sequelize(DB_name, user, pwd,
 var quiz_path = path.join(__dirname,'quiz');
 var Quiz = sequelize.import(quiz_path);
 
-<<<<<<< HEAD
 // Importar definición de la tabla comment
 var comment_path = path.join(__dirname,'comment');
 var Comment = sequelize.import(comment_path);
@@ -52,39 +44,18 @@ var Subject = require('./subject.js');
 exports.Subject = Subject;
 
 // sequelize.sync() crea e inicializa la tabla de preguntas en la BBDD
-=======
-  // Importar definición de la tabla comment
-//var comment_path = path.join(__dirname,'comment');
-//var Comment = sequelize.import(comment_path);
-
-  // Establecer las relaciones
-//Comment.belongsTo(Quiz);
-//Quiz.hasMany(Comment, { onDelete: 'cascade',hooks: true });
-
-exports.Quiz = Quiz; // exportar la definición de la tabla Quiz
-//exports.Comment = Comment; // exportar la definición de la tabla Comment
-var Subject = require('./subject.js');
-exports.Subject = Subject; // exportar la definición de los temas
-
-// sequelize.sync() inicializa BD
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
 sequelize.sync().then(function () {
 
   Quiz.count().then(function (count) {
     if (count === 0) { // la tabla se inicializa solo si está vacía
       Quiz.create(
         {
-<<<<<<< HEAD
           pregunta: 'Cuál es la Capital de Italia?',
-=======
-          pregunta: 'Capital de Italia',
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
           respuesta: 'Roma',
           tema: 'Humanidades'
         }
       );
       Quiz.create(
-<<<<<<< HEAD
         {
           pregunta: 'Cuál es la Capital de Portugal?',
           respuesta: 'Lisboa',
@@ -92,22 +63,6 @@ sequelize.sync().then(function () {
         }
       )
       .then(function () { console.log('Base de datos inicializada'); });
-=======
-        {
-          pregunta: 'Capital de Portugal',
-          respuesta: 'Lisboa',
-          tema: 'Humanidades'
-        }
-      );
-      Quiz.create(
-        {
-          pregunta: ' 2 + 2 ',
-          respuesta: '4',
-          tema: 'Matemáticas'
-        }
-      )
-      .then(function () { console.log('DB inicializada'); });
->>>>>>> 6f477f96e5b9396477f248ddb6a05c386fe8a624
     }
   });
 });
